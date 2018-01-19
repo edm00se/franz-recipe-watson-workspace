@@ -4,15 +4,26 @@ const path = require('path');
 
 module.exports = Franz => {
   const getMessages = function getMessages() {
-    const elements = document.querySelectorAll('ul.ic-spaces .ic-news');
-    let count = 0;
-
-    for (let i = 0; i < elements.length; i += 1) {
-      count += 1;
+    let directCount = 0;
+    let indirectCount = 0;
+    
+    // chats
+    if( document.querySelector('.ic-menu-spaces .ic-has-unread') ){
+      indirectCount++;
     }
 
-    // set Franz badge
-    Franz.setBadge(count);
+    // DMs
+    if( document.querySelector('.ic-direct-messages .ic-has-unread') ){
+      directCount++;
+    }
+
+    // mentions
+    if( document.querySelector('.ic-mentions .ic-has-unread') ){
+      directCount++;
+    }
+
+    // set Franz badges
+    Franz.setBadge(directCount, indirectCount);
   };
 
   // inject franz.css stylesheet
