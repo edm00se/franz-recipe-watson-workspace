@@ -1,6 +1,6 @@
 {
   "id": "franz-recipe-watson-workspace",
-  "name": "WatsonWorkspace",
+  "name": "Watson Workspace",
   "version": "1.0.0",
   "description": "IBM Watson Workspace plugin for Franz",
   "main": "index.js",
