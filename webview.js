@@ -8,7 +8,7 @@ module.exports = Franz => {
     let indirectCount = 0;
     
     // chats
-    if( document.querySelector('.ic-menu-spaces .ic-has-unread') ){
+    if( (document.querySelectorAll('ul.ic-spaces .ic-news').length > 0) || document.querySelector('.ic-menu-spaces .ic-has-unread') ){
       indirectCount++;
     }
 
