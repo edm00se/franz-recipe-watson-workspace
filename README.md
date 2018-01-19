@@ -1,5 +1,5 @@
 # Watson Workspace for Franz
-This is a plugin for Franz to work with IBM Watson Workspace.
+This is a plugin for [Franz 5](https://github.com/meetfranz/franz) to work with IBM Watson Workspace.
 
 ## Adding To Franz
 
