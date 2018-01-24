@@ -36,6 +36,9 @@ module.exports = Franz => {
      }
     */
 
+    if( getGenericUnreadCountForType() ){
+      indirectCount++;
+    }
     if( getSpacesHasUnread() ){
       indirectCount++;
     }
