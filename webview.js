@@ -2,23 +2,47 @@
 
 const path = require('path');
 
+// works for any "type" of tab loaded (Chats/Spaces, DMs, Mentions)
+function getGenericUnreadCountForType(){
+  return (document.querySelectorAll('ul.ic-spaces .ic-news').length || 0);
+}
+
+function getSpacesHasUnread(){
+  return !!document.querySelector('.ic-menu-spaces.ic-has-unread');
+}
+
+function getDirectMessagesHasUnread(){
+  return !!document.querySelector('.ic-direct-messages.ic-has-unread');
+}
+
+function getMentionsHasUnread(){
+  return !!document.querySelector('.ic-mentions.ic-has-unread');
+}
+
 module.exports = Franz => {
   const getMessages = function getMessages() {
     let directCount = 0;
     let indirectCount = 0;
-    
-    // chats
-    if( (document.querySelectorAll('ul.ic-spaces .ic-news').length > 0) || document.querySelector('.ic-menu-spaces .ic-has-unread') ){
+
+    /*
+    * NOTE: if WW ever changes its high level behavior to allow for better querySelector access
+    * to unread counts, this can change to be more specific, for now, it's only specific for
+    * when the user is in the "tab" of the type, making it inelegant
+    */
+    /*
+     // selected into a type of space
+     if(document.querySelector('.ic-conversations-header')){
+       const label = document.querySelector('.ic-conversations-header h2').innerText;
+     }
+    */
+
+    if( getSpacesHasUnread() ){
       indirectCount++;
     }
-
-    // DMs
-    if( document.querySelector('.ic-direct-messages .ic-has-unread') ){
+    if( getDirectMessagesHasUnread() ){
       directCount++;
     }
-
-    // mentions
-    if( document.querySelector('.ic-mentions .ic-has-unread') ){
+    if( getMentionsHasUnread() ){
       directCount++;
     }
 
