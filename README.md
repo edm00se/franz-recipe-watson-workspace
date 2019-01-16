@@ -1,6 +1,8 @@
 # Watson Workspace for Franz
 This is a plugin for [Franz 5](https://github.com/meetfranz/franz) to work with IBM Watson Workspace.
 
+[Update]: This plugin is no longer supported or maintained, and the repo is being archived (read-only), due to [IBM's announcement of its "end of marketing"](https://help.workspace.ibm.com/hc/en-us/articles/360015622373).
+
 ## Adding To Franz
 
 Until Watson Workspace is added to the Franz plugins repository, to get this working, you can:
